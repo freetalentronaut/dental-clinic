@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Precision Comfort Smile — Dental Clinic</title>
+  <meta name="description" content="Precision Comfort Smile — Comprehensive dental care. Scaling, extraction, tooth filling, complete denture, root canal, orthodontics, bleaching and implants. Chhatrapati Sambhajinagar. Call 9764796749 / 7875024140." />
+  <meta name="theme-color" content="#0B1520" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ["Playfair Display","ui-serif","Georgia"],
+            body: ["Inter","ui-sans-serif","system-ui"]
+          },
+          colors: {
+            night: "#0B1520",
+            ink: "#0E1B26",
+            line: "rgba(255,255,255,.12)",
+            mint: "#7EF4D7",
+            sky: "#67E8F9",
+            teal: "#22D3EE",
+            bone: "#E7F4F2"
+          },
+          borderRadius: { card: "1.25rem" },
+          boxShadow: {
+            soft: "0 18px 50px rgba(0,0,0,.22)",
+            glow: "0 14px 44px rgba(34,211,238,.35)"
+          },
+          backgroundImage: {
+            hero:
+              "linear-gradient(180deg, rgba(11,21,32,.35), rgba(11,21,32,.88)), url('https://images.unsplash.com/photo-1588771930290-24db39ae1f86?q=80&w=1920&auto=format&fit=crop')"
+          },
+          keyframes: {
+            floaty: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-6px)' } },
+            shimmer: { '0%': { backgroundPosition: '200% 0' }, '100%': { backgroundPosition: '-200% 0' } },
+            fadeUp: { '0%': { opacity: 0, transform: 'translateY(14px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } }
+          },
+          animation: {
+            floaty: 'floaty 3.5s ease-in-out infinite',
+            shimmer: 'shimmer 2.8s linear infinite',
+            fadeUp: 'fadeUp .7s ease-out forwards'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .nav-link{padding:.5rem .75rem;border-radius:.75rem}
+    .nav-link:hover, .nav-link[aria-current="page"]{background: rgba(255,255,255,.08)}
+    html{scroll-behavior:smooth}
+    .reveal{opacity:0;transform:translateY(14px)}
+    .reveal.in{opacity:1;transform:none;transition:opacity .6s, transform .6s}
+    .btn-shimmer{background-image:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.8), rgba(255,255,255,0)); background-size:200% 100%}
+  </style>
+  <!-- Chart.js for the Treatments chart -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body class="bg-night text-white font-body antialiased selection:bg-teal selection:text-black">
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-ink/80 backdrop-blur border-b border-line">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-16 sm:h-20 flex items-center gap-4">
+        <a href="#home" class="flex items-center gap-3 group" aria-label="Precision Comfort Smile">
+          <!-- Inline SVG LOGO -->
+          <svg class="h-10 w-10 sm:h-12 sm:w-12 p-2 rounded-xl bg-white text-teal border border-line shadow-soft group-hover:shadow-glow transition-shadow"
+               viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Precision Comfort Smile logo">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#67E8F9"/><stop offset="1" stop-color="#7EF4D7"/>
+              </linearGradient>
+            </defs>
+            <!-- tooth outline -->
+            <path d="M18 14c4-6 12-8 14-8s10 2 14 8c4 6 2 16-2 20-2 2-4 3-6 3-2 0-3-1-5-1s-3 1-5 1c-2 0-4-1-6-3-4-4-6-14-2-20z"
+                  stroke="url(#g1)" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- smile -->
+            <path d="M24 36c3 3 7 4 8 4s5-1 8-4" stroke="url(#g1)" stroke-width="3.2" stroke-linecap="round"/>
+            <!-- sparkle -->
+            <path d="M48 10l2 3 3 2-3 2-2 3-2-3-3-2 3-2 2-3z" fill="#7EF4D7" opacity=".9"/>
+          </svg>
+          <div class="leading-none">
+            <p class="font-display text-xl sm:text-2xl">Precision Comfort Smile</p>
+            <p class="text-[11px] text-[#b9f2ff] tracking-[.22em] uppercase">Dental Clinic</p>
+          </div>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-1 ml-auto text-sm">
+          <a class="nav-link" href="#home" data-nav>Home</a>
+          <a class="nav-link" href="#about" data-nav>About</a>
+          <a class="nav-link" href="#treatments" data-nav>Treatments</a>
+          <a class="nav-link" href="#info" data-nav>Dental Info</a>
+          <a class="nav-link" href="#testimonials" data-nav>Testimonials</a>
+          <a class="nav-link" href="#contact" data-nav>Contact</a>
+        </nav>
+
+        <a href="#contact" class="hidden md:inline-flex relative items-center rounded-full bg-teal text-black px-4 py-2 shadow-glow">
+          <span class="btn-shimmer absolute inset-0 rounded-full opacity-0 hover:opacity-100 animate-shimmer"></span>
+          Book Appointment
+        </a>
+        <button id="mbtn" class="md:hidden ml-auto p-2 border border-line rounded-lg" aria-label="Menu">☰</button>
+      </div>
+    </div>
+    <!-- mobile drawer -->
+    <div id="mnav" class="hidden md:hidden border-t border-line bg-ink/95">
+      <div class="max-w-7xl mx-auto px-4 py-4 grid grid-cols-1 gap-2 text-sm">
+        <a class="mnavlink nav-link" href="#home" data-nav>Home</a>
+        <a class="mnavlink nav-link" href="#about" data-nav>About</a>
+        <a class="mnavlink nav-link" href="#treatments" data-nav>Treatments</a>
+        <a class="mnavlink nav-link" href="#info" data-nav>Dental Info</a>
+        <a class="mnavlink nav-link" href="#testimonials" data-nav>Testimonials</a>
+        <a class="mnavlink nav-link" href="#contact" data-nav>Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="bg-hero bg-cover bg-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7">
+          <h1 class="font-display text-4xl sm:text-6xl leading-tight reveal">
+            Precision. Comfort. <span class="text-teal">Smile.</span>
+          </h1>
+          <p class="reveal mt-5 text-white/85 max-w-2xl">
+            Welcome to <span class="font-semibold">Precision Comfort Smile</span> — your home for
+            advanced, gentle, and patient-first dental care in <span class="whitespace-nowrap">Chhatrapati Sambhajinagar</span>.
+            We combine clinical expertise with a warm approach so every visit feels effortless.
+          </p>
+          <div class="reveal mt-8 flex flex-wrap items-center gap-3">
+            <a href="#treatments" class="inline-flex items-center rounded-full bg-teal text-black px-6 py-3 shadow-glow">
+              View Treatments
+            </a>
+            <a href="mailto:drpavanparikh@gmail.com" class="inline-flex items-center rounded-full border border-line px-6 py-3 hover:bg-white/10">
+              Email: drpavanparikh@gmail.com
+            </a>
+          </div>
+          <div class="mt-6 text-sm text-white/70">
+            Call: <a class="underline" href="tel:+919764796749">9764796749</a> ·
+            <a class="underline" href="tel:+917875024140">7875024140</a>
+          </div>
+        </div>
+        <div class="lg:col-span-5">
+          <div class="reveal p-2 rounded-[1.5rem] bg-white/5 border border-line shadow-soft">
+            <img class="rounded-[1.25rem] w-full h-72 md:h-[22rem] object-cover"
+                 src="dental.jpg"
+                 alt="Dentist with patient"/>
+          </div>
+          <div class="mt-4 grid grid-cols-3 gap-3 text-xs text-white/80">
+            <div class="rounded-card bg-white/5 border border-line p-3 text-center animate-floaty">Painless RCT</div>
+            <div class="rounded-card bg-white/5 border border-line p-3 text-center animate-floaty [animation-delay:.5s]">Same-day Filling</div>
+            <div class="rounded-card bg-white/5 border border-line p-3 text-center animate-floaty [animation-delay:1s]">Smile Design</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="relative">
+    <div class="absolute inset-0 pointer-events-none"
+         style="background: radial-gradient(600px 200px at 10% 0%, rgba(34,211,238,.15), rgba(14,27,38,0) 70%)"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-5">
+          <div class="reveal overflow-hidden rounded-card border border-line shadow-soft">
+            <img src="dr.webp"
+                 class="w-full h-80 object-cover" alt="Dr. Pavan — dental clinic" />
+          </div>
+        </div>
+        <div class="lg:col-span-7">
+          <h2 class="font-display text-3xl sm:text-4xl reveal">Meet Your Dentist</h2>
+          <p class="mt-4 text-white/85 reveal">
+            I’m <span class="font-semibold">Dr. Pavan Parikh</span>, and my philosophy is simple: precision in diagnosis,
+            comfort in care, and a lasting smile as the outcome. Over the years, I’ve helped patients overcome dental anxiety,
+            restore oral health, and regain confidence through personalized treatment plans.
+          </p>
+          <p class="mt-4 text-white/80 reveal">
+            At Precision Comfort Smile, we invest in evidence-based protocols and high-quality materials.
+            Whether you need routine care or comprehensive rehabilitation, you’ll receive transparent
+            guidance and compassionate attention at every step.
+          </p>
+          <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div class="reveal rounded-card border border-line p-4">
+              <p class="text-3xl font-display text-teal">10+</p><p class="text-sm text-white/70">Years improving smiles</p>
+            </div>
+            <div class="reveal rounded-card border border-line p-4">
+              <p class="text-3xl font-display text-teal">7</p><p class="text-sm text-white/70">Core specialties</p>
+            </div>
+            <div class="reveal rounded-card border border-line p-4">
+              <p class="text-3xl font-display text-teal">1000+</p><p class="text-sm text-white/70">Happy patients</p>
+            </div>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#treatments" class="inline-flex items-center rounded-full bg-teal text-black px-6 py-3 shadow-glow">Explore Treatments</a>
+            <a href="#contact" class="inline-flex items-center rounded-full border border-line px-6 py-3 hover:bg-white/10">Book a consultation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TREATMENTS -->
+  <section id="treatments" class="relative">
+    <div class="absolute inset-0 pointer-events-none"
+         style="background: radial-gradient(600px 220px at 90% 20%, rgba(126,244,215,.12), rgba(14,27,38,0) 70%)"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="font-display text-3xl sm:text-4xl reveal">Dental Treatments</h2>
+        <p class="mt-3 text-white/80 reveal">From preventive care to complex rehabilitation, delivered with precision and comfort.</p>
+      </div>
+
+      <!-- Treatments grid -->
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Scaling -->
+        <article class="reveal rounded-card overflow-hidden border border-line bg-ink hover:bg-white/5 transition-colors">
+          <img src="scaling.jpg" alt="Scaling"
+               class="w-full aspect-[16/10] object-cover">
+          <div class="p-6">
+            <h3 class="font-display text-xl">Scaling</h3>
+            <p class="mt-2 text-sm text-white/80">Professional cleaning to remove plaque & tartar, protect gums, and keep your smile fresh.</p>
+          </div>
+        </article>
+        <!-- Extraction -->
+        <article class="reveal rounded-card overflow-hidden border border-line bg-ink hover:bg-white/5 transition-colors">
+          <img src="extraction.jpeg" alt="Extraction"
+               class="w-full aspect-[16/10] object-cover">
+          <div class="p-6">
+            <h3 class="font-display text-xl">Extraction</h3>
+            <p class="mt-2 text-sm text-white/80">Gentle extractions with effective anaesthesia and post-op care for fast recovery.</p>
+          </div>
+        </article>
+        <!-- Filling -->
+        <article class="reveal rounded-card overflow-hidden border border-line bg-ink hover:bg-white/5 transition-colors">
+          <img src="toothfill.jpeg" alt="Tooth filling"
+               class="w-full aspect-[16/10] object-cover">
+          <div class="p-6">
+            <h3 class="font-display text-xl">Tooth Filling</h3>
+            <p class="mt-2 text-sm text-white/80">Aesthetic, long-lasting restorations matched to your tooth shade for seamless results.</p>
+          </div>
+        </article>
+        <!-- Complete denture -->
+        <article class="reveal rounded-card overflow-hidden border border-line bg-ink hover:bg-white/5 transition-colors">
+          <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=1200&auto=format&fit=crop" alt="Complete denture"
+               class="w-full aspect-[16/10] object-cover">
+          <div class="p-6">
+            <h3 class="font-display text-xl">Complete Denture</h3>
+            <p class="mt-2 text-sm text-white/80">Comfort-fit dentures designed for natural looks, proper bite, and confident speech.</p>
+          </div>
+        </article>
+        <!-- Root canal -->
+        <article class="reveal rounded-card overflow-hidden border border-line bg-ink hover:bg-white/5 transition-colors">
+          <img src="rootcanal.jpeg" alt="Root canal"
+               class="w-full aspect-[16/10] object-cover">
+          <div class="p-6">
+            <h3 class="font-display text-xl">Root Canal Treatment</h3>
+            <p class="mt-2 text-sm text-white/80">Pain-controlled RCT using precise protocols to preserve your natural tooth.</p>
+          </div>
+        </article>
+        <!-- Orthodontics -->
+        <article class="reveal rounded-card overflow-hidden border border-line bg-ink hover:bg-white/5 transition-colors">
+          <img src="ortho.jpeg" alt="Orthodontics"
+               class="w-full aspect-[16/10] object-cover">
+          <div class="p-6">
+            <h3 class="font-display text-xl">Orthodontic Treatments</h3>
+            <p class="mt-2 text-sm text-white/80">Metal, ceramic, or clear aligner options for aligned teeth and a balanced bite.</p>
+          </div>
+        </article>
+        <!-- Bleaching -->
+        <article class="reveal rounded-card overflow-hidden border border-line bg-ink hover:bg-white/5 transition-colors">
+          <img src="bleaching.jpeg" alt="Bleaching"
+               class="w-full aspect-[16/10] object-cover">
+          <div class="p-6">
+            <h3 class="font-display text-xl">Bleaching</h3>
+            <p class="mt-2 text-sm text-white/80">Safe whitening with shade planning for a brighter smile that still looks natural.</p>
+          </div>
+        </article>
+        <!-- Implants -->
+        <article class="reveal rounded-card overflow-hidden border border-line bg-ink hover:bg-white/5 transition-colors">
+          <img src="implant.jpeg" alt="Implants"
+               class="w-full aspect-[16/10] object-cover">
+          <div class="p-6">
+            <h3 class="font-display text-xl">Dental Implant</h3>
+            <p class="mt-2 text-sm text-white/80">Tooth replacement that feels secure and natural with long-term function.</p>
+          </div>
+        </article>
+        <!-- Checkup -->
+        <article class="reveal rounded-card overflow-hidden border border-line bg-ink hover:bg-white/5 transition-colors">
+          <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1200&auto=format&fit=crop" alt="Exam"
+               class="w-full aspect-[16/10] object-cover">
+          <div class="p-6">
+            <h3 class="font-display text-xl">Checkup & X-ray</h3>
+            <p class="mt-2 text-sm text-white/80">Comprehensive diagnosis with clear explanations and tailored treatment plans.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Treatments Chart -->
+      <div class="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+        <div class="lg:col-span-1">
+          <h3 class="font-display text-2xl reveal">Treatment Mix (Sample)</h3>
+          <p class="mt-2 text-white/80 reveal">A visual snapshot of common procedures at our clinic. This helps plan resources and reduce waiting time.</p>
+          <a href="#contact" class="reveal mt-6 inline-flex items-center rounded-full bg-teal text-black px-6 py-3 shadow-glow">Schedule a Visit</a>
+        </div>
+        <div class="lg:col-span-2">
+          <div class="reveal rounded-card border border-line bg-ink/60 p-4">
+            <canvas id="treatmentsChart" height="140"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DENTAL INFO / FAQ -->
+  <section id="info" class="relative">
+    <div class="absolute inset-0 pointer-events-none"
+         style="background: radial-gradient(600px 240px at 40% 100%, rgba(103,232,249,.10), rgba(14,27,38,0) 70%)"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="font-display text-3xl sm:text-4xl reveal">Dental Information</h2>
+        <p class="mt-3 text-white/80 reveal">Quick, trustworthy notes to help you make informed decisions.</p>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Accordion items -->
+        <details class="reveal rounded-card border border-line bg-ink/60 p-6 group">
+          <summary class="cursor-pointer list-none flex items-center justify-between">
+            <span class="font-semibold">How often should I get scaling (cleaning)?</span>
+            <span class="text-teal group-open:rotate-180 transition-transform">⌄</span>
+          </summary>
+          <p class="mt-3 text-white/80">Most people benefit from scaling every 6 months. If you have gum concerns, your dentist may suggest a 3–4 month interval.</p>
+        </details>
+
+        <details class="reveal rounded-card border border-line bg-ink/60 p-6 group">
+            <summary class="cursor-pointer list-none flex items-center justify-between">
+              <span class="font-semibold">Do fillings hurt?</span>
+              <span class="text-teal group-open:rotate-180 transition-transform">⌄</span>
+            </summary>
+            <p class="mt-3 text-white/80">Modern anaesthesia makes fillings comfortable. We also shape and polish carefully, so your bite feels natural immediately.</p>
+        </details>
+
+        <details class="reveal rounded-card border border-line bg-ink/60 p-6 group">
+          <summary class="cursor-pointer list-none flex items-center justify-between">
+            <span class="font-semibold">Root Canal vs. Extraction</span>
+            <span class="text-teal group-open:rotate-180 transition-transform">⌄</span>
+          </summary>
+          <p class="mt-3 text-white/80">We preserve natural teeth where possible (RCT). Extraction is chosen when prognosis is poor or infection is extensive.</p>
+        </details>
+
+        <details class="reveal rounded-card border border-line bg-ink/60 p-6 group">
+          <summary class="cursor-pointer list-none flex items-center justify-between">
+            <span class="font-semibold">Are implants right for me?</span>
+            <span class="text-teal group-open:rotate-180 transition-transform">⌄</span>
+          </summary>
+          <p class="mt-3 text-white/80">Implants offer excellent function and aesthetics. We assess bone support, health, and habits before recommending them.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="relative">
+    <div class="absolute inset-0 pointer-events-none"
+         style="background: radial-gradient(600px 220px at 90% 80%, rgba(126,244,215,.10), rgba(14,27,38,0) 70%)"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="font-display text-3xl sm:text-4xl reveal">What Patients Say</h2>
+        <p class="mt-3 text-white/80 reveal">A few words from people who trusted us with their smiles.</p>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6" id="testimonialGrid">
+        <!-- Cards -->
+        <article class="reveal rounded-card border border-line bg-ink/60 p-6">
+          <div class="flex items-center gap-3">
+            <img class="h-12 w-12 rounded-full object-cover"
+                 src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=300&auto=format&fit=crop" alt="Patient"/>
+            <div>
+              <p class="font-semibold">Aishwarya S.</p>
+              <p class="text-xs text-white/60">RCT & Crown</p>
+            </div>
+          </div>
+          <p class="mt-4 text-white/80">I had zero pain during my root canal. Everything was explained clearly and I felt taken care of throughout.</p>
+        </article>
+
+        <article class="reveal rounded-card border border-line bg-ink/60 p-6">
+          <div class="flex items-center gap-3">
+            <img class="h-12 w-12 rounded-full object-cover"
+                 src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=300&auto=format&fit=crop" alt="Patient"/>
+            <div>
+              <p class="font-semibold">Mehul R.</p>
+              <p class="text-xs text-white/60">Implant</p>
+            </div>
+          </div>
+          <p class="mt-4 text-white/80">My implant feels like a real tooth. The fit and bite are perfect. Highly recommend!</p>
+        </article>
+
+        <article class="reveal rounded-card border border-line bg-ink/60 p-6">
+          <div class="flex items-center gap-3">
+            <img class="h-12 w-12 rounded-full object-cover"
+                 src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=300&auto=format&fit=crop" alt="Patient"/>
+            <div>
+              <p class="font-semibold">Priyanka T.</p>
+              <p class="text-xs text-white/60">Orthodontics</p>
+            </div>
+          </div>
+          <p class="mt-4 text-white/80">Braces journey was smooth and timely. Love my smile now. Clinic is clean and staff are kind.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="relative">
+    <div class="absolute inset-0 pointer-events-none"
+         style="background: radial-gradient(700px 260px at 0% 50%, rgba(103,232,249,.08), rgba(14,27,38,0) 70%)"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="font-display text-3xl sm:text-4xl reveal">Get in Touch</h2>
+        <p class="mt-3 text-white/80 reveal">Call, WhatsApp, or email — we’ll help you pick the right time and treatment.</p>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Phone -->
+        <a href="tel:+919764796749" class="reveal rounded-card border border-line bg-ink/60 p-6 hover:bg-white/5 transition-colors block">
+          <div class="w-12 h-12 rounded-full bg-teal text-black grid place-items-center shadow-glow">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.05 15.05 0 006.6 6.6l2.2-2.2c.2-.2.5-.3.8-.2 1 .3 2 .5 3 .5.4 0 .8.3.8.7V20a1 1 0 01-1 1C9.6 21 3 14.4 3 6a1 1 0 011-1h3.6c.4 0 .7.3.7.8 0 1 .2 2 .5 3 .1.3 0 .6-.2.8l-2 2.2z"/></svg>
+          </div>
+          <h3 class="font-display text-xl mt-4">Call: 9764796749</h3>
+          <p class="text-white/70 text-sm">Tap to dial</p>
+        </a>
+
+        <!-- Phone 2 -->
+        <a href="tel:+917875024140" class="reveal rounded-card border border-line bg-ink/60 p-6 hover:bg-white/5 transition-colors block">
+          <div class="w-12 h-12 rounded-full bg-teal text-black grid place-items-center shadow-glow">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.05 15.05 0 006.6 6.6l2.2-2.2c.2-.2.5-.3.8-.2 1 .3 2 .5 3 .5.4 0 .8.3.8.7V20a1 1 0 01-1 1C9.6 21 3 14.4 3 6a1 1 0 011-1h3.6c.4 0 .7.3.7.8 0 1 .2 2 .5 3 .1.3 0 .6-.2.8l-2 2.2z"/></svg>
+          </div>
+          <h3 class="font-display text-xl mt-4">Call: 7875024140</h3>
+          <p class="text-white/70 text-sm">Tap to dial</p>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:drpavanparikh@gmail.com" class="reveal rounded-card border border-line bg-ink/60 p-6 hover:bg-white/5 transition-colors block">
+          <div class="w-12 h-12 rounded-full bg-teal text-black grid place-items-center shadow-glow">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16a2 2 0 012 2v.3l-10 6.2L2 8.3V8a2 2 0 012-2zm0 4.1l8 5 8-5V16a2 2 0 01-2 2H6a2 2 0 01-2-2v-5.9z"/></svg>
+          </div>
+          <h3 class="font-display text-xl mt-4">Email: drpavanparikh@gmail.com</h3>
+          <p class="text-white/70 text-sm">Opens your email app</p>
+        </a>
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Address -->
+        <div class="reveal rounded-card border border-line bg-ink/60 p-6">
+          <h4 class="font-display text-xl">Clinic Address</h4>
+          <p class="mt-2 text-white/80">Chhatrapati Sambhajinagar (Aurangabad), Maharashtra</p>
+          <p class="text-white/60 text-sm">Landmark: Near city center (exact pin shared on confirmation)</p>
+          <a href="https://maps.google.com/?q=Chhatrapati+Sambhajinagar+Maharashtra" target="_blank" rel="noopener"
+             class="mt-4 inline-flex items-center rounded-full border border-line px-5 py-2 hover:bg-white/10">
+            Open in Google Maps
+          </a>
+        </div>
+        <!-- Quick contact form (static) -->
+        <form class="reveal rounded-card border border-line bg-ink/60 p-6">
+          <h4 class="font-display text-xl">Quick Enquiry</h4>
+          <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input class="px-4 py-3 bg-night border border-line rounded-lg text-white placeholder-white/50" placeholder="Full Name" />
+            <input type="tel" class="px-4 py-3 bg-night border border-line rounded-lg text-white placeholder-white/50" placeholder="Phone" />
+            <input type="email" class="md:col-span-2 px-4 py-3 bg-night border border-line rounded-lg text-white placeholder-white/50" placeholder="Email" />
+            <textarea rows="4" class="md:col-span-2 px-4 py-3 bg-night border border-line rounded-lg text-white placeholder-white/50" placeholder="How can we help?"></textarea>
+          </div>
+          <div class="mt-5">
+            <button type="button" class="relative inline-flex items-center rounded-full bg-teal text-black px-6 py-3 shadow-glow">
+              <span class="btn-shimmer absolute inset-0 rounded-full opacity-0 hover:opacity-100 animate-shimmer"></span>
+              Submit
+            </button>
+          </div>
+          <p class="mt-3 text-xs text-white/50">Submitting this form won’t send an email automatically in this demo. Please call or email directly for appointments.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-line bg-ink">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-sm text-white/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <!-- small logo -->
+        <svg class="h-8 w-8 p-1.5 rounded-lg bg-white text-teal border border-line" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M18 14c4-6 12-8 14-8s10 2 14 8c4 6 2 16-2 20-2 2-4 3-6 3-2 0-3-1-5-1s-3 1-5 1c-2 0-4-1-6-3-4-4-6-14-2-20z" stroke="#67E8F9" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M24 36c3 3 7 4 8 4s5-1 8-4" stroke="#7EF4D7" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span class="font-display text-lg">Precision Comfort Smile</span>
+      </div>
+      <p class="text-center">© <span id="year"></span> Precision Comfort Smile · Designed by <a class="underline" href="https://www.talentronaut.in" target="_blank" rel="noopener">Talentronaut Technologies</a></p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/919764796749" class="fixed z-50 right-4 bottom-5 grid place-items-center rounded-full border border-line bg-[#25D366] text-white shadow-soft hover:shadow-glow"
+     target="_blank" rel="noopener" title="Chat on WhatsApp" style="width:64px;height:64px;">
+    <svg viewBox="0 0 32 32" class="w-7 h-7"><path fill="currentColor" d="M19.1 17.2c-.3-.1-1-.5-1.1-.6s-.3-.1-.5.1-.6.7-.8.8-.3.1-.5 0c-1-.5-1.9-1.1-2.7-2-.2-.3-.5-.6-.1-1 .3-.4.6-.7.6-1.1 0-.1 0-.2 0-.3s0-.2-.1-.3c-.1-.3-.5-.8-.7-1.1-.2-.3-.4-.3-.6-.3h-.5c-.2 0-.3 0-.5.2-.2.2-.7.7-.7 1.7s.8 2 .9 2.1c.1.2 1.6 2.5 3.9 3.5 2.3.9 2.3.6 2.7.6s1.3-.5 1.5-1 .2-1 .2-1c0-.1-.1-.2-.4-.3m-3.1 6.3c-1.9 0-3.7-.6-5.2-1.7l-3.7 1 1-3.6c-1.2-1.6-1.9-3.5-1.9-5.5C6.2 8.4 10.6 4 16 4s9.8 4.4 9.8 9.8-4.4 9.7-9.8 9.7"/></svg>
+  </a>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Intersection reveal
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach((e)=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
+    },{ threshold: .16 });
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const b = document.getElementById('mbtn'), m = document.getElementById('mnav');
+    b && b.addEventListener('click', ()=> m.classList.toggle('hidden'));
+    document.querySelectorAll('#mnav .mnavlink').forEach(a=>a.addEventListener('click',()=>m.classList.add('hidden')));
+
+    // Anchor active state update
+    const sections = [...document.querySelectorAll('section[id]')];
+    const navLinks = document.querySelectorAll('[data-nav]');
+    const setActive = () => {
+      let cur = sections[0].id;
+      const top = window.scrollY + 96; // offset for header
+      sections.forEach(s => {
+        const rect = s.getBoundingClientRect();
+        const y = rect.top + window.scrollY;
+        if (y <= top) cur = s.id;
+      });
+      navLinks.forEach(a=>{
+        const match = a.getAttribute('href').replace('#','') === cur;
+        if (match) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+      });
+    };
+    setActive();
+    window.addEventListener('scroll', setActive);
+    window.addEventListener('resize', setActive);
+
+    // Treatments Chart (sample data)
+    const ctx = document.getElementById('treatmentsChart');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Scaling','Extraction','Filling','Denture','RCT','Ortho','Bleaching','Implant'],
+          datasets: [{
+            label: 'Procedures (sample)',
+            data: [32,14,28,10,26,18,22,12],
+            borderWidth: 1,
+            borderColor: '#67E8F9',
+            backgroundColor: 'rgba(103,232,249,.25)',
+            hoverBackgroundColor: 'rgba(126,244,215,.35)'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { ticks: { color: '#ccecf6' }, grid: { color: 'rgba(255,255,255,.06)'} },
+            y: { ticks: { color: '#ccecf6' }, grid: { color: 'rgba(255,255,255,.06)'}, suggestedMax: 40 }
+          },
+          plugins: {
+            legend: { labels: { color: '#dff9ff' } },
+            tooltip: { backgroundColor: 'rgba(14,27,38,.9)', borderColor: 'rgba(255,255,255,.12)', borderWidth: 1 }
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
