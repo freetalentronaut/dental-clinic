@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Precision Comfort Smile — Dental Clinic</title>
-  <meta name="description" content="Precision Comfort Smile — Comprehensive dental care. Scaling, extraction, tooth filling, complete denture, root canal, orthodontics, bleaching and implants. Chhatrapati Sambhajinagar. Call 9764796749 / 7875024140." />
+  <title>Dr Parikh Multispeciality Dental Clinic</title>
+  <meta name="description" content="Dr Parikh Multispeciality Dental Clinic — Comprehensive dental care. Scaling, extraction, tooth filling, complete denture, root canal, orthodontics, bleaching and implants. Chhatrapati Sambhajinagar. Call 86688 70679." />
   <meta name="theme-color" content="#0B1520" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,12 +39,24 @@
           keyframes: {
             floaty: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-6px)' } },
             shimmer: { '0%': { backgroundPosition: '200% 0' }, '100%': { backgroundPosition: '-200% 0' } },
-            fadeUp: { '0%': { opacity: 0, transform: 'translateY(14px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } }
+            fadeUp: { '0%': { opacity: 0, transform: 'translateY(14px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+            floatSlow: { '0%,100%': { transform: 'translateY(0px) rotate(0deg)' }, '50%': { transform: 'translateY(-10px) rotate(5deg)' } },
+            floatFast: { '0%,100%': { transform: 'translateY(0px) scale(1)' }, '50%': { transform: 'translateY(-8px) scale(1.05)' } },
+            sparkle: { '0%,100%': { opacity: 0, transform: 'scale(0.5)' }, '50%': { opacity: 1, transform: 'scale(1)' } },
+            drift: { '0%': { transform: 'translateX(-100%) translateY(0px)' }, '100%': { transform: 'translateX(100vw) translateY(-50px)' } },
+            rotateSlow: { '0%': { transform: 'rotate(0deg)' }, '100%': { transform: 'rotate(360deg)' } },
+            wave: { '0%,100%': { transform: 'rotate(0deg)' }, '25%': { transform: 'rotate(5deg)' }, '75%': { transform: 'rotate(-5deg)' } }
           },
           animation: {
             floaty: 'floaty 3.5s ease-in-out infinite',
             shimmer: 'shimmer 2.8s linear infinite',
-            fadeUp: 'fadeUp .7s ease-out forwards'
+            fadeUp: 'fadeUp .7s ease-out forwards',
+            floatSlow: 'floatSlow 4s ease-in-out infinite',
+            floatFast: 'floatFast 2.5s ease-in-out infinite',
+            sparkle: 'sparkle 3s ease-in-out infinite',
+            drift: 'drift 15s linear infinite',
+            rotateSlow: 'rotateSlow 20s linear infinite',
+            wave: 'wave 2s ease-in-out infinite'
           }
         }
       }
@@ -84,8 +96,7 @@
             <path d="M48 10l2 3 3 2-3 2-2 3-2-3-3-2 3-2 2-3z" fill="#7EF4D7" opacity=".9"/>
           </svg>
           <div class="leading-none">
-            <p class="font-display text-xl sm:text-2xl">Precision Comfort Smile</p>
-            <p class="text-[11px] text-[#b9f2ff] tracking-[.22em] uppercase">Dental Clinic</p>
+            <p class="font-display text-xl sm:text-2xl">Dr Parikh Multispeciality Dental Clinic</p>
           </div>
         </a>
 
@@ -119,41 +130,132 @@
   </header>
 
   <!-- HERO -->
-  <section id="home" class="bg-hero bg-cover bg-center">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        <div class="lg:col-span-7">
-          <h1 class="font-display text-4xl sm:text-6xl leading-tight reveal">
-            Precision. Comfort. <span class="text-teal">Smile.</span>
-          </h1>
-          <p class="reveal mt-5 text-white/85 max-w-2xl">
-            Welcome to <span class="font-semibold">Precision Comfort Smile</span> — your home for
-            advanced, gentle, and patient-first dental care in <span class="whitespace-nowrap">Chhatrapati Sambhajinagar</span>.
-            We combine clinical expertise with a warm approach so every visit feels effortless.
-          </p>
-          <div class="reveal mt-8 flex flex-wrap items-center gap-3">
-            <a href="#treatments" class="inline-flex items-center rounded-full bg-teal text-black px-6 py-3 shadow-glow">
-              View Treatments
-            </a>
-            <a href="mailto:drpavanparikh@gmail.com" class="inline-flex items-center rounded-full border border-line px-6 py-3 hover:bg-white/10">
-              Email: drpavanparikh@gmail.com
-            </a>
-          </div>
-          <div class="mt-6 text-sm text-white/70">
-            Call: <a class="underline" href="tel:+919764796749">9764796749</a> ·
-            <a class="underline" href="tel:+917875024140">7875024140</a>
+  <section id="home" class="relative min-h-screen flex items-center bg-hero bg-cover bg-center overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-night/80 to-night/40"></div>
+    <!-- New Dental-Related Background Animations -->
+    <div class="absolute inset-0 pointer-events-none">
+      <!-- Rotating Dental Drill -->
+      <div class="absolute top-20 left-10 animate-rotateSlow opacity-25">
+        <svg class="w-8 h-8 text-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2v6M8 8l8 8M16 8l-8 8"/>
+          <circle cx="12" cy="16" r="4"/>
+        </svg>
+      </div>
+      <!-- Floating Braces -->
+      <div class="absolute top-40 right-20 animate-floatSlow opacity-30">
+        <svg class="w-6 h-6 text-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 12h16M6 8h12M6 16h12"/>
+          <circle cx="8" cy="12" r="1"/>
+          <circle cx="16" cy="12" r="1"/>
+        </svg>
+      </div>
+      <!-- Smile Arc Animation -->
+      <div class="absolute bottom-32 left-1/4 animate-wave opacity-20">
+        <svg class="w-10 h-10 text-sky" viewBox="0 0 64 64" fill="none">
+          <path d="M18 40c4 4 12 6 14 6s10-2 14-6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <!-- Floating Dental Implant -->
+      <div class="absolute top-1/3 right-10 animate-floatFast opacity-25">
+        <svg class="w-7 h-7 text-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2v20M8 6h8M8 10h8M8 14h8"/>
+          <circle cx="12" cy="18" r="2"/>
+        </svg>
+      </div>
+      <!-- Sparkle for Clean Teeth -->
+      <div class="absolute bottom-20 right-1/3 animate-sparkle opacity-30">
+        <svg class="w-5 h-5 text-teal" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+      </div>
+      <!-- Floating Toothpaste Tube -->
+      <div class="absolute top-1/2 left-5 animate-floatSlow opacity-15">
+        <svg class="w-12 h-12 text-sky" viewBox="0 0 64 64" fill="none">
+          <rect x="20" y="40" width="24" height="16" stroke="currentColor" stroke-width="2" fill="none"/>
+          <rect x="16" y="32" width="32" height="8" stroke="currentColor" stroke-width="2" fill="none"/>
+          <circle cx="32" cy="24" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+      <!-- Floating Heart for Care -->
+      <div class="absolute bottom-40 right-10 animate-floatFast opacity-20">
+        <svg class="w-6 h-6 text-mint" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </div>
+    
+      <!-- Floating Bubble for Clean Mouth -->
+      <div class="absolute bottom-10 left-20 animate-sparkle opacity-25">
+        <svg class="w-4 h-4 text-sky" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="12" cy="12" r="10"/>
+        </svg>
+      </div>
+      <!-- Floating Dental Floss -->
+      <div class="absolute top-1/4 right-5 animate-floatSlow opacity-22">
+        <svg class="w-10 h-10 text-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 12h16M4 8h16M4 16h16"/>
+        </svg>
+      </div>
+      <!-- Floating Syringe for Anesthesia -->
+      <div class="absolute bottom-1/4 left-10 animate-floatFast opacity-20">
+        <svg class="w-6 h-6 text-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2v20M8 6h8M8 10h8M8 14h8"/>
+          <circle cx="12" cy="18" r="2"/>
+        </svg>
+      </div>
+      <!-- Floating Star for Excellence -->
+      <div class="absolute top-3/4 right-1/4 animate-sparkle opacity-30">
+        <svg class="w-5 h-5 text-sky" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+      </div>
+      <!-- Floating Pulse for Health -->
+      <div class="absolute bottom-1/3 right-10 animate-drift opacity-15">
+        <svg class="w-8 h-8 text-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M2 12h4l4-8 4 16 4-8h4"/>
+        </svg>
+      </div>
+      <!-- Floating Dental Mirror -->
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Left: Text Content -->
+        <div class="order-2 lg:order-1">
+          <div class="space-y-6">
+            <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight">
+              Precision. <span class="text-teal">Comfort.</span> Smile.
+            </h1>
+            <p class="text-white/90 text-lg lg:text-xl leading-relaxed">
+              Welcome to <span class="font-semibold text-teal">Dr Parikh Multispeciality Dental Clinic</span> — your trusted partner for
+              advanced dental care in <span class="whitespace-nowrap">Chhatrapati Sambhajinagar</span>.
+              Experience gentle, expert treatments in a comfortable environment.
+            </p>
+            <div class="flex flex-col sm:flex-row items-start gap-4">
+              <a href="#treatments" class="inline-flex items-center rounded-full bg-teal text-black px-6 py-3 text-sm font-medium shadow-glow hover:scale-105 transition-transform">
+                Explore Treatments
+              </a>
+              <a href="#contact" class="inline-flex items-center rounded-full border-2 border-teal text-teal px-6 py-3 text-sm font-medium hover:bg-teal hover:text-black transition-colors">
+                Get in Touch
+              </a>
+            </div>
+            <div class="flex flex-wrap gap-4 text-sm">
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-teal" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8a15.05 15.05 0 006.6 6.6l2.2-2.2c.2-.2.5-.3.8-.2 1 .3 2 .5 3 .5.4 0 .8.3.8.7V20a1 1 0 01-1 1C9.6 21 3 14.4 3 6a1 1 0 011-1h3.6c.4 0 .7.3.7.8 0 1 .2 2 .5 3 .1.3 0 .6-.2.8l-2 2.2z"/></svg>
+                <a class="underline hover:text-teal" href="tel:+918668870679">86688 70679</a>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-teal" fill="currentColor" viewBox="0 0 24 24"><path d="M4 6h16a2 2 0 012 2v.3l-10 6.2L2 8.3V8a2 2 0 012-2zm0 4.1l8 5 8-5V16a2 2 0 01-2 2H6a2 2 0 01-2-2v-5.9z"/></svg>
+                <a class="underline hover:text-teal" href="mailto:drpavanparikh@gmail.com">drpavanparikh@gmail.com</a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="lg:col-span-5">
-          <div class="reveal p-2 rounded-[1.5rem] bg-white/5 border border-line shadow-soft">
-            <img class="rounded-[1.25rem] w-full h-72 md:h-[22rem] object-cover"
-                 src="dental.jpg"
-                 alt="Dentist with patient"/>
-          </div>
-          <div class="mt-4 grid grid-cols-3 gap-3 text-xs text-white/80">
-            <div class="rounded-card bg-white/5 border border-line p-3 text-center animate-floaty">Painless RCT</div>
-            <div class="rounded-card bg-white/5 border border-line p-3 text-center animate-floaty [animation-delay:.5s]">Same-day Filling</div>
-            <div class="rounded-card bg-white/5 border border-line p-3 text-center animate-floaty [animation-delay:1s]">Smile Design</div>
+        <!-- Right: Video -->
+        <div class="order-1 lg:order-2">
+          <div class="relative overflow-hidden rounded-2xl border border-line shadow-soft">
+            <video class="w-full h-64 sm:h-80 lg:h-96 xl:h-[28rem] object-contain" autoplay muted loop controls>
+              <source src="video1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </div>
@@ -161,44 +263,64 @@
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="relative">
+  <section id="about" class="relative bg-ink/50">
     <div class="absolute inset-0 pointer-events-none"
-         style="background: radial-gradient(600px 200px at 10% 0%, rgba(34,211,238,.15), rgba(14,27,38,0) 70%)"></div>
+         style="background: radial-gradient(600px 200px at 90% 100%, rgba(34,211,238,.10), rgba(14,27,38,0) 70%)"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-        <div class="lg:col-span-5">
-          <div class="reveal overflow-hidden rounded-card border border-line shadow-soft">
-            <img src="dr.webp"
-                 class="w-full h-80 object-cover" alt="Dr. Pavan — dental clinic" />
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="font-display text-3xl sm:text-5xl reveal">Meet Dr. Parikh</h2>
+        <p class="mt-4 text-white/80 reveal text-lg">A dentist with a passion for precision, art, and patient care.</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1">
+          <div class="reveal space-y-6">
+            <p class="text-white/85 text-lg leading-relaxed">
+              Dr. Adv. Pavan Kumar Parikh brings a unique blend of dentistry and law to his practice in Chhatrapati Shambhajinagar. With degrees from Coorg Institute of Dental Sciences and MLC Vasantrao Ji Kale Law College, he combines scientific expertise with artistic precision.
+            </p>
+            <p class="text-white/80 text-lg leading-relaxed">
+              His remarkable achievement of crafting a 0.3 cm Ganesh idol from dental wax, recognized in the Influencer Book Of World Records, showcases his meticulous attention to detail. Beyond clinical excellence, Dr. Parikh shares inspirational content on social media and maintains a presence in Aurangabad.
+            </p>
+            <div class="grid grid-cols-3 gap-4 mt-8">
+              <div class="text-center">
+                <p class="text-4xl font-display text-teal">10+</p>
+                <p class="text-sm text-white/70">Years Experience</p>
+              </div>
+              <div class="text-center">
+                <p class="text-4xl font-display text-teal">7</p>
+                <p class="text-sm text-white/70">Specialties</p>
+              </div>
+              <div class="text-center">
+                <p class="text-4xl font-display text-teal">1000+</p>
+                <p class="text-sm text-white/70">Smiles Transformed</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-4 mt-8">
+              <a href="#treatments" class="inline-flex items-center rounded-full bg-teal text-black px-8 py-3 shadow-glow hover:scale-105 transition-transform">View Treatments</a>
+              <a href="#contact" class="inline-flex items-center rounded-full border-2 border-teal text-teal px-8 py-3 hover:bg-teal hover:text-black transition-colors">Schedule Visit</a>
+            </div>
           </div>
         </div>
-        <div class="lg:col-span-7">
-          <h2 class="font-display text-3xl sm:text-4xl reveal">Meet Your Dentist</h2>
-          <p class="mt-4 text-white/85 reveal">
-            I’m <span class="font-semibold">Dr. Pavan Parikh</span>, and my philosophy is simple: precision in diagnosis,
-            comfort in care, and a lasting smile as the outcome. Over the years, I’ve helped patients overcome dental anxiety,
-            restore oral health, and regain confidence through personalized treatment plans.
-          </p>
-          <p class="mt-4 text-white/80 reveal">
-            At Precision Comfort Smile, we invest in evidence-based protocols and high-quality materials.
-            Whether you need routine care or comprehensive rehabilitation, you’ll receive transparent
-            guidance and compassionate attention at every step.
-          </p>
-          <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-3">
-            <div class="reveal rounded-card border border-line p-4">
-              <p class="text-3xl font-display text-teal">10+</p><p class="text-sm text-white/70">Years improving smiles</p>
-            </div>
-            <div class="reveal rounded-card border border-line p-4">
-              <p class="text-3xl font-display text-teal">7</p><p class="text-sm text-white/70">Core specialties</p>
-            </div>
-            <div class="reveal rounded-card border border-line p-4">
-              <p class="text-3xl font-display text-teal">1000+</p><p class="text-sm text-white/70">Happy patients</p>
+        <div class="order-1 lg:order-2">
+          <div class="reveal relative">
+            <div class="absolute -inset-4 bg-gradient-to-r from-teal/20 to-sky/20 rounded-2xl blur-xl"></div>
+            <div class="relative overflow-hidden rounded-2xl border border-line shadow-soft">
+              <img src="dr.webp" class="w-full h-96 lg:h-[28rem] object-cover" alt="Dr. Pavan Kumar Parikh" />
             </div>
           </div>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#treatments" class="inline-flex items-center rounded-full bg-teal text-black px-6 py-3 shadow-glow">Explore Treatments</a>
-            <a href="#contact" class="inline-flex items-center rounded-full border border-line px-6 py-3 hover:bg-white/10">Book a consultation</a>
-          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO 2 -->
+  <section id="video2" class="relative py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-center">
+        <div class="reveal relative overflow-hidden rounded-2xl border border-line shadow-soft max-w-5xl w-full">
+          <video class="w-full h-[48rem] object-cover" autoplay muted loop controls>
+            <source src="video2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </div>
@@ -423,22 +545,13 @@
         <p class="mt-3 text-white/80 reveal">Call, WhatsApp, or email — we’ll help you pick the right time and treatment.</p>
       </div>
 
-      <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6 justify-center">
         <!-- Phone -->
-        <a href="tel:+919764796749" class="reveal rounded-card border border-line bg-ink/60 p-6 hover:bg-white/5 transition-colors block">
+        <a href="tel:+918668870679" class="reveal rounded-card border border-line bg-ink/60 p-6 hover:bg-white/5 transition-colors block">
           <div class="w-12 h-12 rounded-full bg-teal text-black grid place-items-center shadow-glow">
             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.05 15.05 0 006.6 6.6l2.2-2.2c.2-.2.5-.3.8-.2 1 .3 2 .5 3 .5.4 0 .8.3.8.7V20a1 1 0 01-1 1C9.6 21 3 14.4 3 6a1 1 0 011-1h3.6c.4 0 .7.3.7.8 0 1 .2 2 .5 3 .1.3 0 .6-.2.8l-2 2.2z"/></svg>
           </div>
-          <h3 class="font-display text-xl mt-4">Call: 9764796749</h3>
-          <p class="text-white/70 text-sm">Tap to dial</p>
-        </a>
-
-        <!-- Phone 2 -->
-        <a href="tel:+917875024140" class="reveal rounded-card border border-line bg-ink/60 p-6 hover:bg-white/5 transition-colors block">
-          <div class="w-12 h-12 rounded-full bg-teal text-black grid place-items-center shadow-glow">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.05 15.05 0 006.6 6.6l2.2-2.2c.2-.2.5-.3.8-.2 1 .3 2 .5 3 .5.4 0 .8.3.8.7V20a1 1 0 01-1 1C9.6 21 3 14.4 3 6a1 1 0 011-1h3.6c.4 0 .7.3.7.8 0 1 .2 2 .5 3 .1.3 0 .6-.2.8l-2 2.2z"/></svg>
-          </div>
-          <h3 class="font-display text-xl mt-4">Call: 7875024140</h3>
+          <h3 class="font-display text-xl mt-4">Call: 86688 70679</h3>
           <p class="text-white/70 text-sm">Tap to dial</p>
         </a>
 
@@ -448,7 +561,7 @@
             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16a2 2 0 012 2v.3l-10 6.2L2 8.3V8a2 2 0 012-2zm0 4.1l8 5 8-5V16a2 2 0 01-2 2H6a2 2 0 01-2-2v-5.9z"/></svg>
           </div>
           <h3 class="font-display text-xl mt-4">Email: drpavanparikh@gmail.com</h3>
-          <p class="text-white/70 text-sm">Opens your email app</p>
+          <p class="text-white/70 text-sm"></p>
         </a>
       </div>
 
@@ -456,9 +569,9 @@
         <!-- Address -->
         <div class="reveal rounded-card border border-line bg-ink/60 p-6">
           <h4 class="font-display text-xl">Clinic Address</h4>
-          <p class="mt-2 text-white/80">Chhatrapati Sambhajinagar (Aurangabad), Maharashtra</p>
+          <p class="mt-2 text-white/80">Vijaynagar garkheda parisar Chatrapathi shambhajinagar</p>
           <p class="text-white/60 text-sm">Landmark: Near city center (exact pin shared on confirmation)</p>
-          <a href="https://maps.google.com/?q=Chhatrapati+Sambhajinagar+Maharashtra" target="_blank" rel="noopener"
+          <a href="https://maps.google.com/?q=Vijaynagar+garkheda+parisar+Chatrapathi+shambhajinagar" target="_blank" rel="noopener"
              class="mt-4 inline-flex items-center rounded-full border border-line px-5 py-2 hover:bg-white/10">
             Open in Google Maps
           </a>
@@ -500,7 +613,7 @@
   </footer>
 
   <!-- WhatsApp FAB -->
-  <a href="https://wa.me/919764796749" class="fixed z-50 right-4 bottom-5 grid place-items-center rounded-full border border-line bg-[#25D366] text-white shadow-soft hover:shadow-glow"
+  <a href="https://wa.me/918668870679" class="fixed z-50 right-4 bottom-5 grid place-items-center rounded-full border border-line bg-[#25D366] text-white shadow-soft hover:shadow-glow"
      target="_blank" rel="noopener" title="Chat on WhatsApp" style="width:64px;height:64px;">
     <svg viewBox="0 0 32 32" class="w-7 h-7"><path fill="currentColor" d="M19.1 17.2c-.3-.1-1-.5-1.1-.6s-.3-.1-.5.1-.6.7-.8.8-.3.1-.5 0c-1-.5-1.9-1.1-2.7-2-.2-.3-.5-.6-.1-1 .3-.4.6-.7.6-1.1 0-.1 0-.2 0-.3s0-.2-.1-.3c-.1-.3-.5-.8-.7-1.1-.2-.3-.4-.3-.6-.3h-.5c-.2 0-.3 0-.5.2-.2.2-.7.7-.7 1.7s.8 2 .9 2.1c.1.2 1.6 2.5 3.9 3.5 2.3.9 2.3.6 2.7.6s1.3-.5 1.5-1 .2-1 .2-1c0-.1-.1-.2-.4-.3m-3.1 6.3c-1.9 0-3.7-.6-5.2-1.7l-3.7 1 1-3.6c-1.2-1.6-1.9-3.5-1.9-5.5C6.2 8.4 10.6 4 16 4s9.8 4.4 9.8 9.8-4.4 9.7-9.8 9.7"/></svg>
   </a>
